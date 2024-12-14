@@ -1,0 +1,22 @@
+from PySimpleGUI import PySimpleGUI as sg # Importando a biblioteca resposavel por gerar a interface
+
+# --Layout--
+sg.theme('Reddit')
+layout = [ # Definindo as Linhas da Interface
+    [sg.Text('Usuário'), sg.Input(key='usuario', size=(20,1))], # Linha do Usuário e seu label
+    [sg.Text('Senha'), sg.Input(key='senha', password_char='*', size=(20,1))], # Linha da Senha e sua label
+    [sg.Checkbox('Deseja salvar seu login?')], # Linha refente a caixa pergunta sobre o salvamento do login
+    [sg.Button('Entrar')]
+]
+
+# --Janela-- 
+janela = sg.Window('Tela de Login', layout) # Criando a janela e colocando seu titulo e o layout que fizemos
+
+# --Ler os Eventos--
+while True:
+    eventos, valores = janela.read() # Lendo as informações em formato de lista e colocando em variáveis separadas
+    if eventos == sg.WINDOW_CLOSED: # Caso a pessoa tente fechar o programa ele encerra o loop
+        break
+    if eventos == 'Entrar': # Verificação para ver se a pessoa digitou o Usuário e a Senha corretos sem banco de dados
+        if valores['usuario'] == 'Hugo' and valores['senha'] == '1234':
+            print('Login correto')
