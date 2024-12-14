@@ -1,1 +1,2 @@
-# Interface-com-Python-
+# Interface utilizando a biblioteca PySimpleGUI
+
